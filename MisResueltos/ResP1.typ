@@ -7,9 +7,11 @@
 #let centered-bold-eq(eq) = align(center, text(weight: "bold")[#eq])
 #let then = $arrow.r.double$
 #let iff = $arrow.r.l.double$
-
-
-
+#let vuelta = $arrow.l.double$
+#let tq = "tal que"
+#let novacio = $eq.not emptyset$
+#let plq = "por lo que"
+#let qvq = "quiero ver que"
 #show title: set align(center)
 #title[Guia Práctica 1 1c2026]
 
@@ -56,18 +58,50 @@ supongamos que existe t cota superior tal que $t <b,$ sea $epsilon = (t+b)/2, t 
 
 
 + - (a) Sean $x,y in RR$ tales que $y-x>1$. Pruebe que existe un entero entre $x$ e $y$. \ #proof[#text(fill:blue)[Sea $S={n in ZZ: n>x}$ el conjunto de todos los enteros mayores que $x$, sea $i = min(S)$, como es mínimo cumple que 
-$i-1lt.eq x < i then x<i+1$ ]]
-  - (b) Sean $x,y in RR$ tales que $x<y$. Pruebe que existe un racional entre $x$ e $y$.
+$i-1lt.eq x < i then x<i+1$. ]]
+  - (b) Sean $x,y in RR$ tales que $x<y$. Pruebe que existe un racional entre $x$ e $y$. 
   - (c) Sean $x,y in QQ$ tales que $x<y$. Pruebe que existe un irracional entre $x$ e $y$.
   - (d) Sean $x,y in RR$ tales que $x<y$. Pruebe que existe un irracional entre $x$ e $y$.\ #proof[agregar]
 
 
 + Sea $A subset.eq RR$ no vacío y acotado inferiormente. Pruebe la siguiente equivalencia:\ $ i = inf A arrow.l.r.double.long cases(
   i lt.eq "para todo" a in A,
-  "para todo" epsilon > 0 "existe" a in A "tal que" i<a<i+epsilon.
+  "para todo" epsilon > 0 "existe" a in A "tal que" i lt.eq a<i+epsilon.
 ) $ \ #proof[#text(fill:blue)[
-    
+     $then$ 
+     - i = inf $ A$, por lo tanto es cota inferior y cumple $i lt.eq a, forall a in A$. Supongamos existe $epsilon>0 "tal que" i+epsilon lt.eq a, a in A$, sea $j = i + epsilon$ tenemos que $j$ es cota inferior y $j > i$ Absurdo pues $i = inf(A),$ Luego $forall epsilon>0, exists a in A tq a < i+ epsilon$.
+     $vuelta$
+     - $i lt.eq a, forall a in A$, supongo $j$ cota inferior, $j> i$, tomo $epsilon = j -i, epsilon>0$, sabemos que $forall epsilon>0 exists a in A tq i < a < i + epsilon, then a < i + epsilon = i + (j-i) = j, then a < j$ Absurdo pues $j$ era cota inferior, luego la mayor de las cotas inferiores de $A$ es $i$.  
 ]]
 
 
-+
++ Halle, si existen, supremo, ínfimo, máximo y mínimo de los siguientes subconjuntos de $RR$, y pruebe que lo son:
+    - (a) $A= (a,b]$ \ #proof[#text(fill:blue)[
+        supremo y máximo = $b$, ínfimo = $a$, no posee mínimo.\
+        $b$ es cota superior de $A$ pues $x lt.eq b, forall x in A$, supongamos existe $b' < b$ cota superior, pero $b in A$, luego $b'$ no puede ser cota superior y $b = sup(A)$, como tambíen pertenece al conjunto, $b = "máximo"(A).$\
+        $a lt.eq x, forall x in A$, por lo tanto $a$ es cota inferior de $A$, supongamos que $a$ no es cota inferior, luego para algún $x in A, epsilon>0, x gt.eq a + epsilon,$ por lo tanto $a+ epsilon$ es cota inferior, sea $c = (a + (a+epsilon))/2 = a + epsilon/2, "luego" a < a + epsilon/2 < a + epsilon$, pero $a+epsilon/2 $ pertenece a $A$, por lo que $a+ epsilon$ no puede ser cota inferior, luego $a$ es infímo y como no pertenece al conjunto no existe mínimo.  
+    ]]
+    - (b) $B ={1/2^n:n in NN}$
+    - (c) $B union{0}$
+    - (d) ${x² -x-1: x in RR}$
+
++ Sean $A subset.eq B subset.eq RR,$ con $A novacio$. Pruebe las siguientes afirmaciones:
+    - (a) Si $B$ está acotado superiormente, entonces $A$ también lo está, y $sup A lt.eq sup B.$ \ #proof[#text(fill:blue)[
+        $B$ está acotado superiormente, por Axioma de Completitud tiene supremo, como $A$ esta contenido en $B$ tenemos que $a in B, forall a in A$, supongamos que $A$ no está acotado, luego existe algún $a in A, a> sup(B), then sup(B)<a, a in B$ absurdo por definición de supremo, luego $A$ es acotado superiormente, por Axioma de Completitud también posee supremo y al estar contenido en $B$ se tiene que $sup A lt.eq sup B$.
+    ]]
+    - (b) Si $B$ está acotado inferiormente, entonces $A$ también lo está, e $inf B lt.eq inf A.$ \ #proof[#text(fill:blue)[
+        $B$ acotado inferiormente, luego $-B$ acotado superiormente e $inf(B)= sup(-B)$ por Axioma de Completitud, como $A subset.eq B$ se tiene que $a in B, forall a in A$, luego $inf(B) lt.eq a, forall a in A$, por lo tanto $A$ esta acotado inferiormente e $inf(B) lt.eq inf(A).$ 
+    ]]
+    - (c) Si $A$ no está acotado, entonces $B$ tampoco lo está. \ #proof[#text(fill:blue)[Supongamos, sin perdida de la generalidad que $B$ esta acotado superiormente, luego existe $b = sup(B)$, como $A$ no está acotado, $exists a in A tq a > sup(B), "pero" a in B, forall a in A$, absurdo pues $b$ es el supremo de $B$. Por lo tanto $B$ no está acotado.]]
+
++ Dados un conjunto de números reales $A$ y $ c in RR$, denotamos $c.A = {c.a: a in A}$. Más aun, $-A$ denotará al conjunto $(-1)A$. Pruebe las siguientes afirmaciones.
+    - (a) Si $A$ está acotado superiormente, entonces $-A$ está acotado inferiormente e $inf(-A)= -sup A$. \ #proof[#text(fill:blue)[
+        sea $s = sup(A), qvq inf(-A) = - s$
+        - $a lt.eq s, forall a in A$, luego $-a gt.eq -s$ y $-s$ es cota inferior de $-A$
+        - si $t$ es cota superior de $A$, $-t$ es cota inferior de $-A$, luego $-t lt.eq s then t gt.eq -s$
+    ]]
+    - (b) Si $c>0$ y $A$ está acotado superiormente, entonces $c.A$ está acotado superiormente y $sup(c.A)=c.sup(A)$. \ #proof[#text(fill:blue)[
+        Sea $s = sup(A):$
+        - $x lt.eq s, forall x in A$, como $c>0 then c.x lt.eq c.s$
+        - $forall epsilon>0, exists x in A tq s-epsilon < x$, como $c>0 then c(s-epsilon) lt.eq c.x, then c.s - c.epsilon lt.eq c.x$ si tomamos $delta = c.epsilon >0$ obtenemos $c.s - delta lt.eq c.x$ y esto es la definición de supremo, luego $sup(c.A) = c.sup(A)$.
+    ]]
