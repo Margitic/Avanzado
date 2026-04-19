@@ -12,6 +12,7 @@
 #let novacio = $eq.not emptyset$
 #let plq = "por lo que"
 #let qvq = "quiero ver que"
+#let cool = $checkmark checkmark checkmark$
 #show title: set align(center)
 #title[Guia Práctica 1 1c2026]
 
@@ -29,6 +30,21 @@
 verdadero pues $x lt.eq b, forall x in A.$
 2. Si $t$ es cualquier otra cota superior de $A then b lt.eq t$
 supongamos que existe t cota superior tal que $t <b,$ sea $epsilon = (t+b)/2, t < epsilon < b$, por lo que $epsilon in A "pues" epsilon<b and a lt.eq t < epsilon$, por lo tanto $b$ es la menor de las cotas superiores.]]]
+
+#proposition[
+    (Densidad de $QQ$). Sean $x,y in RR$, con $x<y$. Entonces existe $q in QQ tq x < q <y$.
+    #proof[#text(fill:blue)[Como $x<y$, tenemos que $y-x>0.$ Por Arquímedes, sabemos que existe $n in NN tq y-x>1/n>0.$ Multiplicando la desigualdad por $n$(que es positivo), tenemos \
+    #centered-bold-eq($n(y-x)>1 then n.y-n.x > 1$) 
+    #centered-bold-eq($n.y > n.x +1, "sea" floor(n.x) in ZZ tq floor(n.x)lt.eq n.x < floor(n.x)+1$) Llamamos $m = floor(n.x)+1$, volviendo a dividir por $n$ nos queda
+    #centered-bold-eq($n.x < m < n.y then x < m/n <y.$)
+    Tomando $q = m/n$ obtenemos lo que queríamos probar. ]]
+]
+#exercise[
+    De ejemplo 4. Probar que $s = root(,2)$ es el supremo en $RR "de" A = {r in QQ: r²<2}$
+#proof[#text(fill:olive)[
+    - ¿$s$ es cota superior? Sí pues por definición del conjunto todo elemento de $A$ cumple $r² < 2 then |r| < root(,2) then -root(,2)<r<root(,2) $
+    - ¿$forall epsilon>0, exists a in A tq s-epsilon < a$? Supongo que no, entonces existe $a in A tq a <= root(,2)-epsilon$ para algun $epsilon>0, root(,2)-epsilon < root(,2), $ como estamos en los reales por ejercicio 2 inciso b de la guia 1 sabemos que existe $q in QQ tq root(,2)-epsilon < q < root(,2)$ por lo tanto $q in A "y" root(,2)-epsilon $ no es cota superior de A. Luego $root(,2)$ es el supremo de $A$.   
+]]]
 
 #exercise[
     Sea $A subset.eq RR$ no vacío y acotado superiormente. Sea $C = {"cotas superiores de" A}$. Probar que:
@@ -59,10 +75,15 @@ supongamos que existe t cota superior tal que $t <b,$ sea $epsilon = (t+b)/2, t 
 
 + - (a) Sean $x,y in RR$ tales que $y-x>1$. Pruebe que existe un entero entre $x$ e $y$. \ #proof[#text(fill:blue)[Sea $S={n in ZZ: n>x}$ el conjunto de todos los enteros mayores que $x$, sea $i = min(S)$, como es mínimo cumple que 
 $i-1lt.eq x < i then x<i+1$. ]]
-  - (b) Sean $x,y in RR$ tales que $x<y$. Pruebe que existe un racional entre $x$ e $y$. 
-  - (c) Sean $x,y in QQ$ tales que $x<y$. Pruebe que existe un irracional entre $x$ e $y$.
-  - (d) Sean $x,y in RR$ tales que $x<y$. Pruebe que existe un irracional entre $x$ e $y$.\ #proof[agregar]
-
+  - (b) Sean $x,y in RR$ tales que $x<y$. Pruebe que existe un racional entre $x$ e $y$. \ #proof[#text(fill:blue)[
+    Demostrado en Proposición 1
+  ]]
+  - (c) Sean $x,y in QQ$ tales que $x<y$. Pruebe que existe un irracional entre $x$ e $y$. \ #proof[#text(fill:blue)[
+    agregar
+  ]]
+  - (d) Sean $x,y in RR$ tales que $x<y$. Pruebe que existe un irracional entre $x$ e $y$.\ #proof[#text(fill:blue)[
+    agregar
+    ]]
 
 + Sea $A subset.eq RR$ no vacío y acotado inferiormente. Pruebe la siguiente equivalencia:\ $ i = inf A arrow.l.r.double.long cases(
   i lt.eq "para todo" a in A,
@@ -81,8 +102,18 @@ $i-1lt.eq x < i then x<i+1$. ]]
         $b$ es cota superior de $A$ pues $x lt.eq b, forall x in A$, supongamos existe $b' < b$ cota superior, pero $b in A$, luego $b'$ no puede ser cota superior y $b = sup(A)$, como tambíen pertenece al conjunto, $b = "máximo"(A).$\
         $a lt.eq x, forall x in A$, por lo tanto $a$ es cota inferior de $A$, supongamos que $a$ no es cota inferior, luego para algún $x in A, epsilon>0, x gt.eq a + epsilon,$ por lo tanto $a+ epsilon$ es cota inferior, sea $c = (a + (a+epsilon))/2 = a + epsilon/2, "luego" a < a + epsilon/2 < a + epsilon$, pero $a+epsilon/2 $ pertenece a $A$, por lo que $a+ epsilon$ no puede ser cota inferior, luego $a$ es infímo y como no pertenece al conjunto no existe mínimo.  
     ]]
-    - (b) $B ={1/2^n:n in NN}$
+    - (b) $B ={1/2^n:n in NN}$ \ #proof[#text(fill:blue)[
+        Propongo supremo y máximo$= 1/2$
+        - $¿1/2 gt.eq b, forall b in B? cool "pues" 1/2 >= 1/(2^n), forall n in N $
+        - ¿$forall epsilon >0, exists b in B tq b > 1/2 - epsilon$ \
+            $1/(2^n)> 1/2 - epsilon, 1/(2^n) <= 1/2 then 1/2 > 1/2 - epsilon then 0 > -epsilon $ verdadero $forall epsilon >0.$ Luego $1/2$ es el supremo de $B$, al pertenecer tambien es el máximo.
+    Propongo $inf = 0$ y no posee mínimo
+    - $0 <= b, forall b in B $ ya que $1/2^n>= 0, forall n in N$, luego $0$ es cota inferior de $B$
+    - $forall epsilon > 0, exists b in B tq b < 0 + epsilon then b < epsilon$, \
+        $1/2^n < epsilon then 1 < epsilon.2^n "pues" 2^n >0, forall n in N$ aunque $epsilon$ pueda ser un número extremadamente pequeño, es un número fijo siempre mayor a $0$, mientras que $2^n arrow infinity_(n arrow infinity), $ luego existirá $n in NN tq forall epsilon>0, 1 < epsilon.2^n$ por lo tanto $exists b in B tq b<epsilon$ y como 0 no esta contenido en el conjunto no existe mínimo.
+    ]]
     - (c) $B union{0}$
+    #proof[#text(fill:blue)[idem ejercicio anterior]]
     - (d) ${x² -x-1: x in RR}$
 
 + Sean $A subset.eq B subset.eq RR,$ con $A novacio$. Pruebe las siguientes afirmaciones:
@@ -105,3 +136,4 @@ $i-1lt.eq x < i then x<i+1$. ]]
         - $x lt.eq s, forall x in A$, como $c>0 then c.x lt.eq c.s$
         - $forall epsilon>0, exists x in A tq s-epsilon < x$, como $c>0 then c(s-epsilon) lt.eq c.x, then c.s - c.epsilon lt.eq c.x$ si tomamos $delta = c.epsilon >0$ obtenemos $c.s - delta lt.eq c.x$ y esto es la definición de supremo, luego $sup(c.A) = c.sup(A)$.
     ]]
+
