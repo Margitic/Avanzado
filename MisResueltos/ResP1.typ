@@ -2,7 +2,7 @@
 #import cosmos.fancy: *
 #show: show-theorion
 
-#set page(height: auto)
+#set page("a4")
 #set text(lang: "es")
 #let centered-bold-eq(eq) = align(center, text(weight: "bold")[#eq])
 #let then = $arrow.r.double$
@@ -12,7 +12,9 @@
 #let novacio = $eq.not emptyset$
 #let plq = "por lo que"
 #let qvq = "quiero ver que"
+
 #let cool = $checkmark checkmark checkmark$
+#let limite = $limits("lím")_(n arrow infinity)$
 #show title: set align(center)
 #title[Guia Práctica 1 1c2026]
 
@@ -137,3 +139,96 @@ $i-1lt.eq x < i then x<i+1$. ]]
         - $forall epsilon>0, exists x in A tq s-epsilon < x$, como $c>0 then c(s-epsilon) lt.eq c.x, then c.s - c.epsilon lt.eq c.x$ si tomamos $delta = c.epsilon >0$ obtenemos $c.s - delta lt.eq c.x$ y esto es la definición de supremo, luego $sup(c.A) = c.sup(A)$.
     ]]
 
+== Ejercicios dejados en el apunte Sucesiones
+
+#exercise[
+    Pensar cuáles de las siguientes propiedades sigue valiendo si tomamos $a = plus.minus infinity $ y $b in RR$, o si $a = - infinity, b = + infinity.$
+        + $limits("lím")_(n arrow infinity) (c. a_n)= c.a, forall c in RR.$
+
+        + $limite (a_n + b_n) = a+b.$
+
+        + $limite (a_n.b_n) = a.b.$
+
+        + Si $b eq.not 0, then limite (a_n /b_n)=a/b.$
+
+        + Si $a_n <= b_n, forall n >= n_0 then a <= b.$
+    #proof[#text(fill:olive)[
+        + + Vale pues $c.|infinity| = |infinity|, forall c in abs(RR)$, la sucesion es divergente y eso no cambia al ser multipicada por un $c$.
+          + No aplica.
+        + + Vale pues $b + |infinity| = |infinity|, forall b in RR$, sumar cualquier sucesión acotada a una divergente no modifica su divergencia(?).
+          + No vale, $infinity - infinity$ es una indeterminación.
+        + + Vale siguiendo la misma logica que el $1.1.$
+          + No vale, $(-infinity).infinity$ es una indeterminación.
+        + + Vale pues $(|infinity|)/b = |infinity|, forall b in RR.$
+          + No vale, $(-infinity)/infinity$ es una indeterminación.
+        + + Absurdo pues $limite a_n = |infinity|$, por lo tanto es una sucesion divergente y existira $n_0 tq |a_n| > |b|, forall b in RR$ \ (se tendría que separar en casos para ser mas correctos, porque si el lim tiende a menos infinito y b es positivo si se cumple, pero en lineas generales es falso por eso use modulo.)
+          + Verdadero, pues ambas sucesiones son divergentes y es trivial observar que $-infinity < infinity$
+    ]]
+]
+
+#exercise[
+    Decidir si es verdadera o falsa la siguiente afirmación: si $(a_n)_(n in NN)$ no está acotada entonces $(a_n) "diverge a" plus.minus infinity.$
+    
+    #proof[#text(fill:olive)[
+        Falso, veamos un contraejemplo: \
+        $ a_n = cases(-n "si" n "es impar",
+        n "si" n "es par")$ podemos ver que esta sucesión no esta acotada, pero tampoco diverge pues oscila entre valores positivos y negativos, sin llegar a tender a ninguno.
+    ]]
+]
+
+#exercise[
+    Sea $(a_n)$ una sucesión de números reales tal que $a_n -> a.$
+    + Supongamos que $a > 0.$ Probar que existe un $n_0 tq a_n >= a/2, forall n >= n_0.$
+
+    + Supongamos que $a < 0.$ Probar que existe un $n_0 tq a_n <= a/2, forall n >= n_0.$
+
+    + Concluir, juntandos los ítems anteriores, que si $a_n -> a "y" a eq.not 0, then exists n_0 tq |a_n| >= (|a|)/2 > 0, forall n >= n_0.$  
+
+    + Supongamos $a = 0.$ ¿Valen los ítems 1. y 2? Explicar o mostrar contraejemplo.
+
+    #proof[#text(fill:olive)[
+        
+        1. $limite (a_n) = a, "con" a>0.$ Por definición de límite $exists n_0 tq |a_n - a| < epsilon, forall n >= n_0$. Tomemos 
+            
+            $epsilon = a/2 >0, then & |a_n -a| < a/2 \ & - a/2 < a_n -a < a/2, "sumando" a "en la desigualdad obtenemos"\ & a/2 < a_n < 3/2a \ & a_n > a/2, forall n >= n_0. $
+
+        +  $limite (a_n) = a, "con" a<0.$ Por definición de límite $exists n_0 tq |a_n - a| < epsilon, forall n >= n_0$. Tomemos 
+            
+            $epsilon = - a/2 >0, then & |a_n -a| < -a/2 \ &  a/2 < a_n -a < - a/2, "sumando" a "en la desigualdad obtenemos"\ & 3/2a < a_n < a/2 \ & a_n < a/2, forall n >= n_0. $
+    
+        + Como $a eq.not 0, "tenemos dos casos posibles" a >0 or a <0$:
+            - $a>0$ por 1. sabemos existe $n_0 tq forall n>= n_0, a_n > a/2, "y por ser positivo tenemos que" a = |a| and a_n = |a_n| then |a_n| > (|a|)/2 >0 $
+            - $a<0$ por 2. sabemos existe $n_0 tq forall n>=n_0, a_n < a/2, "y por ser negativo tenemos que" -a = |a| and - a_n = |a_n|, "si multiplicamos por" $-1$ "la desigualdad del 2. obtenemos" - a_n > -a/2 "que es lo mismo que" |a_n| > (|a|)/2 > 0$
+
+        + + $limite - 1/n = 0 "pero nunca ocurre que" a_n > 0/2 = 0 $
+          
+          + $ limite 1/n = 0 "pero nunca ocurre que" a_n < 0/2 = 0$     
+    ]]
+]
+
+#exercise[
+    Sea $(a_n)_(n in NN)$ creciente y no acotada. Probar que $a_n arrow + infinity.$
+
+    #proof[#text(fill:olive)[
+    $a_n "creciente y no acotada por lo que en particular es no acotada superiormente, entonces" forall M>0, exists n_M tq M < a_n_M and forall n_M, exists n > n_M tq a_n > a_n_M
+    .$ En particular $a_n > a_n_M > M$ y esta es la definición de divergencia $therefore a_n arrow + infinity.$ 
+    ]]
+]
+
+#exercise[
+    Sea $A subset RR $ acotado superiormente. Entonces $s= sup A iff:$
+        + $s$ es cota superior de $A$
+        + Existe una sucesión monótona creciente $(a_n) subset A tq limite a_n = s.$
+
+    #proof[#text(fill:olive)[
+        Ida $=>$: 
+         + Sea $s = sup A$ cumple por definición ser cota superior de $A$.
+         + Sabemos que $sup A = s$ por lo tanto $forall epsilon >0, exists a in A tq s-epsilon < a$, si tomamos la sucesión $(a_n)= s- 1/n "podemos ver fácilmente que " limite a_n = s.$ y es estrictamente creciente pues cada vez se resta un monto menor. (mal)
+         2. $epsilon = 1, "elegimos" a_1 in A tq s-1 < a_1 <= s, "por inducción tomamos" epsilon = 1/n, a_n in A tq s- 1/n < a_n <= s. $ \
+         Definimos ahora una nueva sucesión tomando el máximo de los elementos anteriores: $ a_n = max{a_1...a_n}$ y asi garantizamos sea monótona creciente.
+
+        Vuelta $arrow.double.l:$
+         + $cool$
+         + Sabemos existe sucesión monótona creciente que tiende a $s$, por lo tanto $forall epsilon>0, exists n_0 tq &|a_n-s|<epsilon, forall n>=n_0. \ & -epsilon < a_n-s < epsilon", sumando s obtenemos" \ & s- epsilon< a_n, forall n>= n_0$ \ y $a_n in A therefore s = sup A.$  
+    ]] 
+]
