@@ -12,7 +12,7 @@
 #let novacio = $eq.not emptyset$
 #let plq = "por lo que"
 #let qvq = "quiero ver que"
-
+#let tiendeinf = $limits(->)_(n -> infinity)$
 #let cool = $checkmark checkmark checkmark$
 #let limite = $limits("lím")_(n arrow infinity)$
 #show title: set align(center)
@@ -232,3 +232,55 @@ $i-1lt.eq x < i then x<i+1$. ]]
          + Sabemos existe sucesión monótona creciente que tiende a $s$, por lo tanto $forall epsilon>0, exists n_0 tq &|a_n-s|<epsilon, forall n>=n_0. \ & -epsilon < a_n-s < epsilon", sumando s obtenemos" \ & s- epsilon< a_n, forall n>= n_0$ \ y $a_n in A therefore s = sup A.$  
     ]] 
 ]
+
+== Ejercicios 7 al 16
+
+7. Pruebe, usando la definición de límite:
+    - (a) $limite (3-2n)/(n+1)=-2.$ \
+            #proof[#text(fill:blue)[
+agregar
+            ]]
+
+    - (b) $limite sin(n)/n = 0.$ \
+    #proof[#text(fill:blue)[
+agregar
+            ]]
+
+    - (c) $limite (2^n-3)/(2^n+4)=1.$ \
+    #proof[#text(fill:blue)[
+agregar
+            ]]
+
++ Sean $(x_n)_(n in NN) and (a_n)_(n in NN)$ sucesiones de números reales. Probar que si $|x_n-l| <= a_n, forall n in NN and a_n tiendeinf 0 then x_n tiendeinf l.$
+   \ #proof[#text(fill:blue)[
+        agregar
+    ]]
+
++ Si $(x_n)_(n in NN) "e" (y_n)_(n in NN)$ son sucesiones de números reales tales que $x_n tiendeinf l_1 "e" y_n tiendeinf l_2,$ probar que $x_n + y_n tiendeinf l_1+l_2$ para el caso que:
+    
+    - (a) $l_1,l_2 in RR.$ \
+        #proof[#text(fill:blue)[
+        agregar
+      ]]
+    
+    - (b) $l_1 in RR and l_2 = infinity.$ \
+        #proof[#text(fill:blue)[
+        agregar
+      ]]
+    
+    - (c) $l_1 = +infinity = l_2.$ \
+        #proof[#text(fill:blue)[
+        agregar
+      ]]
+    
+    - (d) Pensar por qué no vale en el caso de $l_1 = + infinity and l_2 = - infinity.$ Dar un contraejemplo. \
+        #proof[#text(fill:blue)[
+        agregar
+      ]]
+
++ Sean $(x_n)_(n in NN), (y_n)_(n in NN)$ sucesiones de números reales tales que $x_n tiendeinf l_1 "e" y_n tiendeinf l_2.$ Pruebe que si $x_n <= y_n, forall n in NN, then l_1 <= l_2.$ \
+    #proof[#text(fill:blue)[
+        agregar
+      ]]
+
++ Si $(x_n)_(n in NN) "e" (y_n)_(n in NN)$ son sucesiones de números reales tales que $(x_n)$ converge a $0$ e $(y_n)$ está acotada, pruebe que $(x_n.y_n)$ converge a $0.$
