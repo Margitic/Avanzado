@@ -252,15 +252,20 @@ agregar
             ]]
 
 + Sean $(x_n)_(n in NN) and (a_n)_(n in NN)$ sucesiones de números reales. Probar que si $|x_n-l| <= a_n, forall n in NN and a_n tiendeinf 0 then x_n tiendeinf l.$
+   
+   
    \ #proof[#text(fill:blue)[
-        agregar
+        $"Sabemos que" 0 <= |x_n - l| <= a_n," por transitividad "a_n >=0, forall n in NN, " ademas sabemos que" a_n tiendeinf 0,\ "aplicando limite obtenemos" limite 0 <= limite|x_n-l| <= limite 0 \ then  0 <= limite |x_n -l| <= 0, "luego por lema del sandwich" limite|x_n-l| = 0 plq limite x_n = l.$
     ]]
 
 + Si $(x_n)_(n in NN) "e" (y_n)_(n in NN)$ son sucesiones de números reales tales que $x_n tiendeinf l_1 "e" y_n tiendeinf l_2,$ probar que $x_n + y_n tiendeinf l_1+l_2$ para el caso que:
     
     - (a) $l_1,l_2 in RR.$ \
         #proof[#text(fill:blue)[
-        agregar
+        $"Sabemos que" forall epsilon>0 exists n_1,n_2 in NN tq |x_n-l_1|<epsilon/2 and |y_n-l_2|<epsilon/2, forall n>=n_1, n>=n_2" tomamos" n_0 = max{n_1,n_2}$\ queremos ver que $|x_n +y_n -(l_1+l_2)|<epsilon, forall n>=n_0$\
+        $|x_n+y_n-(l_1+l_2)| = |x_n-l_1+y_n-l_2|$, por desigualdad triangular tenemos \
+        $|x_n-l_1+y_n-l_2|<=|x_n-l_1|+|y_n-l_2| < epsilon/2 + epsilon/2 = epsilon, "finalmente "$ \
+        $|x_n+y_n-(l_1+l_2)|< epsilon.$ 
       ]]
     
     - (b) $l_1 in RR and l_2 = infinity.$ \
@@ -270,17 +275,44 @@ agregar
     
     - (c) $l_1 = +infinity = l_2.$ \
         #proof[#text(fill:blue)[
-        agregar
+        Ambas sucesiones divergen, por lo tanto $forall M>0, exists n_1,n_2 in NN tq x_n > M, forall n>= n_1 and y_n > M, forall n>=n_2. "Tomando" n_0 = max{n_1,n_2} "tenemos que "x_n + y_n > 2M >M, forall n>=n_0$, luego $x_n+y_n "diverge a" + infinity.$
       ]]
     
     - (d) Pensar por qué no vale en el caso de $l_1 = + infinity and l_2 = - infinity.$ Dar un contraejemplo. \
         #proof[#text(fill:blue)[
-        agregar
+        $x_n = n and y_n = -n$ es facil ver que $x_n tiendeinf +infinity and y_n tiendeinf - infinity$ pero $x_n+y_n tiendeinf 0.$
       ]]
 
 + Sean $(x_n)_(n in NN), (y_n)_(n in NN)$ sucesiones de números reales tales que $x_n tiendeinf l_1 "e" y_n tiendeinf l_2.$ Pruebe que si $x_n <= y_n, forall n in NN, then l_1 <= l_2.$ \
+    
     #proof[#text(fill:blue)[
-        agregar
+        $"Supongamos que no, luego" l_1 > l_2 
+        "tomemos" epsilon = (l_1-l_2)/2 >0 "la distancia entre ambos puntos"\
+        "si expandimos la definición de límite obtenemos" \
+        -epsilon < x_n - l_1 < epsilon \
+        -epsilon< y_n -l_2 < epsilon \
+        "si sumamos" l_1,l_2 "en sus respectivas desigualdades obtenemos" \
+        x_n > l_1 - epsilon and y_n < l_2 + epsilon \
+        x_n > (l_1+l_2)/2 and y_n<(l_1+l_2)/2 \
+        "por transitividad obtenemos que a partir de un"n in NN \
+        y_n < (l_1+l_2)/2 < x_n then y_n < x_n bold("Absurdo") "pues" x_n <= y_n forall n in NN. therefore l_1<= l_2.$
       ]]
 
 + Si $(x_n)_(n in NN) "e" (y_n)_(n in NN)$ son sucesiones de números reales tales que $(x_n)$ converge a $0$ e $(y_n)$ está acotada, pruebe que $(x_n.y_n)$ converge a $0.$
+    
+    #proof[#text(fill:blue)[
+        $"Sabemos que" x_n tiendeinf 0 and forall M>0, exists n_1 in NN tq |y_n| < M, forall n>=n_1, "por definición de límite"\
+        |x_n-0| < epsilon then |x_n|< epsilon, "como ambos terminos son positivos"\
+        |x_n|.|y_n| = |x_n.y_n| < epsilon. M = macron(epsilon)\
+        |x_n.y_n| = |x_n.y_n-0| < macron(epsilon), forall macron(epsilon)>0, therefore x_n.y_n tiendeinf 0.$
+      ]]
+    #proof([#text(fill:olive)[
+        $"Mejor redactado" \
+        "Sea" epsilon >0 qvq exists n_0 in NN tq forall n>=n_0, |x_n.y_n-0| < epsilon \
+        "Sabemos que"y_n "esta acotada. Por definición existe un" M>0 tq |y_n| <M forall n in NN. \
+        "Además sabemos que" limite x_n = 0. "Dado que" epsilon/M >0, exists n_0 in NN tq forall n>= n_0: \
+        |x_n-0|< epsilon/M then |x_n| < epsilon/M \
+        "Como sabemos que "|y_n|< M and |x_n| < epsilon/M "y puesto todos son valores positivos podemos multiplicar " \ "ambas desigualdades" 
+        |x_n.y_n-0|=|x_n.y_n| = |x_n|.|y_n| < M.epsilon/M = epsilon \
+        therefore |x_n.y_n-0| < epsilon, forall n >= n_0.$
+    ]])
