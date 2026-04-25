@@ -270,7 +270,23 @@ agregar
     
     - (b) $l_1 in RR and l_2 = infinity.$ \
         #proof[#text(fill:blue)[
-        No sé ah $$
+        Separemos en dos casos, cuando $l_2 = + infinity and l_2 = - infinity$, de todas maneras las demostraciones son análogas. \
+        - Caso $l_2 = +infinity$\
+            Sabemos que $x_n tiendeinf l_1, l_1 in RR$, como es convergente sabemos entonces es acotada, luego \
+
+            $exists k>0 tq |x_n|<k, forall n in NN$, ademas, sabemos que $y_n tiendeinf +infinity$ entonces\
+            $forall M>0, exists n_0 tq y_n > M, forall n>=n_0$\
+            $qvq x_n +y_n tiendeinf l_1+infinity=+infinity$ por lo tanto quiero ver que\
+            $forall M>0, exists n_0 in NN tq x_n+y_n >M, forall n>=n_0$\
+            (asumo trivial demostrar que $l_1+infinity = infinity, forall l_1 in RR$)\
+            $|x_n| < k then -k < x_n < k, forall n>=n_0$\
+            $x_n+y_n > y_n -k > M$ \
+            pero $y_n -k > M iff y_n > M+k$ y como $y_n$ no esta acotada superiormente pues diverge a $+infinity, exists n_1 tq y_n > M+k, forall n >= n_1$, luego \
+            $x_n + y_n > y_n -k > (M+k)-k=M, forall n>=max{n_0,n_1}$ luego por transitividad\
+            $x_n + y_n > M, forall M>0, therefore x_n+y_n tiendeinf + infinity$
+        
+        - Caso $l_2 = -infinity$ \
+            sale igual pero usando la definición de divergencia a $-infinity$ y usando la otra desigualdad de la acotación a $x_n.$
       ]]
     
     - (c) $l_1 = +infinity = l_2.$ \
@@ -387,7 +403,7 @@ agregar
     Pruebe que si toda subsucesión $(x_n_k)_(k in NN)$ tiene una (sub)subsucesión $(x_n_k_j)_(j in NN)$ que converge a $l,$ entonces la sucesión $(x_n)_(n in NN)$ converge a $l.$
 
     #proof[#text(fill:blue)[
-hola
+Horrible ejercicio.
     ]]
 
 + Sra $(x_n)_(n in NN) subset.eq RR$. Pruebe:
@@ -395,7 +411,7 @@ hola
     - (a) Si $(x_(2k))_(k in NN) and (x_(2k-1))_(k in NN)$ son convergentes, y sus límites coinciden, entonces $(x_n)_(n in NN)$ es convergente.
       
         #proof[#text(fill:blue)[
-hola
+            agregar
     ]]
 
     - (b) Si $(x_(2k))_(k in NN), (x_(2k-1))_(k in NN) and (x_(3k))_(k in NN)$ son convergentes, entonces $(x_n)_(n in NN)$ es convergente.
