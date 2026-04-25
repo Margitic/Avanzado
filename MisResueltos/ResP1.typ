@@ -322,8 +322,8 @@ agregar
     - $"(a) Si" (x_n)_(n in NN) "es acotada inferiormente, entonces tiene límite y" \
         limite x_n = inf{x_n:n in NN}.$
             
-    #proof[#text(fill:blue)[
-    $"Llamo" X = {x_n: n in NN}$ al conjunto que contiene todos los elementos de la sucesión $x_n$, como $X$ es no acotado inferiormente y perteneciente a los reales entonces por Axioma de Completitud se que el conjunto posee un ínfimo, llamemoslo $i, tq i <= x_n, forall n in NN. qvq forall epsilon>0, exists n_epsilon tq |x_n - i| < epsilon, forall n >= n_epsilon$. Expandamos el modulo para obtener \
+        #proof[#text(fill:blue)[
+    $"Llamo" X = {x_n: n in NN}$ al conjunto que contiene todos los elementos de la sucesión $x_n$, como $X$ es acotado inferiormente y perteneciente a los reales entonces por Axioma de Completitud se que el conjunto posee un ínfimo, llamemoslo $i, tq i <= x_n, forall n in NN. qvq forall epsilon>0, exists n_epsilon tq |x_n - i| < epsilon, forall n >= n_epsilon$. Expandamos el modulo para obtener \
         $& -epsilon < x_n - i < epsilon$, por ser ínfimo sabemos existe un $n_epsilon in (x_n) tq x_n_epsilon < epsilon + i$ y como es una sucesion decreciente $x_n_epsilon < i + epsilon forall n>= n_epsilon$ \
 
         $i-epsilon < x_n, "Sabemos que" i <= x_n, forall n in NN and i-epsilon < i "pues" epsilon>0, "luego por transitividad" \
@@ -338,9 +338,17 @@ agregar
             Al no estar acotada inferiormente y ser una sucesión decreciente,\ $forall M>0, exists n_0 tq x_n < -M forall n>= n_0.$
         ]]
 
+        #proof[#text(fill:olive)[
+            La sucesión no está acotada inferiormente. Esto significa que no existe ningún número real $c tq c<= x_n, forall n.$\
+            En particular, para cualquier $M>0, -M$ no puede ser cota inferior. Luego existe algun $n_0 in NN tq x_n_0 <-M.$\
+            Como la sucesión es decreciente, $forall n >= n_0, x_n <= x_n_0 <-M.$\
+            $therefore x_n tiendeinf - infinity.$
+        ]]
+
 + Sea $A subset.eq RR$ acotado superiormente y no vacío. Pruebe que si $A$ no tiene máximo entonces existe $(a_n)_(n in NN) subset.eq A$ estrictamente creciente tal que $a_n tiendeinf sup(A).$
 
     #proof[#text(fill:blue)[
+        Nota: falta agregar la condición que se aproxime al supremo, pueden pasar que sea creciente pero nunca llegue al supremo \
         Sabemos que el conjunto es acotado superiormente, no vacío y pertenece a los reales, por Axioma de Completitud tiene supremo, llamemoslo $s$. Además $A$ no tiene máximo, por lo tanto $a < s, forall a in A. $ \
         Creemos la sucesión, elijamos un $a_1 in A "cualquiera"$ \
         Luego, elijamos $a_2 in A tq a_2 > a_1$ \
@@ -352,6 +360,7 @@ agregar
 + Sea $(x_n)_(n in NN) subset.eq RR$ una sucesión no acotada superiormente. Pruebe que existe una subsucesión $(a_n_k)_(k in NN)$ que diverge a $+infinity.$
 
     #proof[#text(fill:blue)[
+        Nota: mismo error que en el 13, corregido en segunda demostración.\
         $x_n $ no acotada superiormente, luego $forall M>0, exists n_0 tq x_n_0 >M.$ \
         No puedo decir que vale $forall n >= n_0$ pues podria no suceder que la sucesión diverja (ver ejercicios de teórica). Ahora empezamos a crear una subsucesión tomando elementos de $x_n$. \
         Tomo $x_n_1 in (x_n)$ cualquiera. \
@@ -362,4 +371,35 @@ agregar
         $therefore (a_n_k) tiendeinf +infinity.$
     ]]
 
+    #proof[#text(fill:olive)[
+        Como $x_n$ no está acotada superiormente, para cada $M>0$ el conjunto ${x_n>M: n in NN}$ es infinito\
+        Construimos la subsucesión por inducción \
+        Para $k=1$ elegimos $n_1 tq x_n_1 >1$\
+        Para $k>1$ elegimos $n_(k+1)>n_k "con" x_n_(k+1)>k+1$\
+        Sabemos podemos encontrar el termino pues la sucesión es no acotada superiormente.\
+        Finalmente tenemos una subsucesión tal que $forall M>0, exists k_0 tq x_n_k >k >=k_0 >M forall k>=k_0$ \
+        $therefore x_n_k tiendeinf +infinity.$
+
+    ]]
+
++ Sean $(x_n)_(n in NN) subset.eq RR and l in RR.$\
     
+    Pruebe que si toda subsucesión $(x_n_k)_(k in NN)$ tiene una (sub)subsucesión $(x_n_k_j)_(j in NN)$ que converge a $l,$ entonces la sucesión $(x_n)_(n in NN)$ converge a $l.$
+
+    #proof[#text(fill:blue)[
+hola
+    ]]
+
++ Sra $(x_n)_(n in NN) subset.eq RR$. Pruebe:
+
+    - (a) Si $(x_(2k))_(k in NN) and (x_(2k-1))_(k in NN)$ son convergentes, y sus límites coinciden, entonces $(x_n)_(n in NN)$ es convergente.
+      
+        #proof[#text(fill:blue)[
+hola
+    ]]
+
+    - (b) Si $(x_(2k))_(k in NN), (x_(2k-1))_(k in NN) and (x_(3k))_(k in NN)$ son convergentes, entonces $(x_n)_(n in NN)$ es convergente.
+
+        #proof[#text(fill:blue)[
+agregar
+    ]]
