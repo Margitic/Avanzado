@@ -270,7 +270,7 @@ agregar
     
     - (b) $l_1 in RR and l_2 = infinity.$ \
         #proof[#text(fill:blue)[
-        agregar
+        No sé ah $$
       ]]
     
     - (c) $l_1 = +infinity = l_2.$ \
@@ -316,3 +316,50 @@ agregar
         |x_n.y_n-0|=|x_n.y_n| = |x_n|.|y_n| < M.epsilon/M = epsilon \
         therefore |x_n.y_n-0| < epsilon, forall n >= n_0.$
     ]])
+
++ $"Sea" (x_n)_(n in NN) subset.eq RR "decreciente. Pruebe que:" $ 
+
+    - $"(a) Si" (x_n)_(n in NN) "es acotada inferiormente, entonces tiene límite y" \
+        limite x_n = inf{x_n:n in NN}.$
+            
+    #proof[#text(fill:blue)[
+    $"Llamo" X = {x_n: n in NN}$ al conjunto que contiene todos los elementos de la sucesión $x_n$, como $X$ es no acotado inferiormente y perteneciente a los reales entonces por Axioma de Completitud se que el conjunto posee un ínfimo, llamemoslo $i, tq i <= x_n, forall n in NN. qvq forall epsilon>0, exists n_epsilon tq |x_n - i| < epsilon, forall n >= n_epsilon$. Expandamos el modulo para obtener \
+        $& -epsilon < x_n - i < epsilon$, por ser ínfimo sabemos existe un $n_epsilon in (x_n) tq x_n_epsilon < epsilon + i$ y como es una sucesion decreciente $x_n_epsilon < i + epsilon forall n>= n_epsilon$ \
+
+        $i-epsilon < x_n, "Sabemos que" i <= x_n, forall n in NN and i-epsilon < i "pues" epsilon>0, "luego por transitividad" \
+        i-epsilon < i < x_n, forall n in NN, "y en particular" forall n >= n_epsilon \
+        therefore forall epsilon>0, exists n_epsilon tq |x_n-i| < epsilon.$
+            ]]
+    
+    - $"(b) Si" (x_n)_(n in NN) "es no acotada inferiormente, entonces" x_n tiendeinf - infinity.$
+       
+        #proof[#text(fill:blue)[
+            $"Decimos que la sucesión" (x_n)_(n in NN) "diverge a"-infinity "si para todo" M>0 exists n_0 in NN tq forall n>=n_0 "se tiene" x_n < -M.$ \
+            Al no estar acotada inferiormente y ser una sucesión decreciente,\ $forall M>0, exists n_0 tq x_n < -M forall n>= n_0.$
+        ]]
+
++ Sea $A subset.eq RR$ acotado superiormente y no vacío. Pruebe que si $A$ no tiene máximo entonces existe $(a_n)_(n in NN) subset.eq A$ estrictamente creciente tal que $a_n tiendeinf sup(A).$
+
+    #proof[#text(fill:blue)[
+        Sabemos que el conjunto es acotado superiormente, no vacío y pertenece a los reales, por Axioma de Completitud tiene supremo, llamemoslo $s$. Además $A$ no tiene máximo, por lo tanto $a < s, forall a in A. $ \
+        Creemos la sucesión, elijamos un $a_1 in A "cualquiera"$ \
+        Luego, elijamos $a_2 in A tq a_2 > a_1$ \
+        Y para todo elemento elijamos $a_(n+1)in A tq a_(n+1)> a_n, forall n in NN$ \
+        Creamos asi una sucesión estrictamente creciente y contenida en $A$, por lo que $(a_n) < s, forall n in NN$ \
+        $therefore forall epsilon>0, exists n_0 in NN tq |a_n-s| < epsilon, forall n>=n_0.$
+    ]]
+
++ Sea $(x_n)_(n in NN) subset.eq RR$ una sucesión no acotada superiormente. Pruebe que existe una subsucesión $(a_n_k)_(k in NN)$ que diverge a $+infinity.$
+
+    #proof[#text(fill:blue)[
+        $x_n $ no acotada superiormente, luego $forall M>0, exists n_0 tq x_n_0 >M.$ \
+        No puedo decir que vale $forall n >= n_0$ pues podria no suceder que la sucesión diverja (ver ejercicios de teórica). Ahora empezamos a crear una subsucesión tomando elementos de $x_n$. \
+        Tomo $x_n_1 in (x_n)$ cualquiera. \
+        Tomo $x_n_2 in (x_n) tq x_n_2 > x_n_1$(Se que existe tal elemento pues la sucesión es no acotada) \
+        Y para todo elemento siguiente elijamos $x_n_(k+1) in (x_n) tq x_n_(k+1)> x_n_k$ \
+        Asi obtuvimos una subsucesión estrictamente creciente y no acotada\
+        Entonces $ forall M>0, exists k_0 in NN tq x_n_k > M, forall k >= k_0$ \
+        $therefore (a_n_k) tiendeinf +infinity.$
+    ]]
+
+    
