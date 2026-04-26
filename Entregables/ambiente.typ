@@ -1,7 +1,8 @@
 #import "@preview/theorion:0.4.1": *
 #import cosmos.fancy: *
 
-
+#let incisos(body) = { set enum(numbering: "a)")
+  body}
 #let proofb(contenido) = proof[#text(fill: blue)[#contenido]] 
 #let proofg(contenido) = proof[#text(fill: olive)[#contenido]]
 #let centered-bold-eq(eq) = align(center, text(weight: "bold")[#eq])
