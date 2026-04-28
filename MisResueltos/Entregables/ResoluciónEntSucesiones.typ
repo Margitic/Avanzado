@@ -1,4 +1,4 @@
-#import "ambiente.typ": *
+#import "../ambiente.typ": *
 #show: configuracion
 
 = Entrega Práctica 1
