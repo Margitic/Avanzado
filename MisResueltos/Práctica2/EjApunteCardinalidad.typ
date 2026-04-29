@@ -16,3 +16,5 @@ $bold("Ejercicio" 9.)$ Probar que $NN tilde.op QQ.$
 Finalmente, sea $x(n) : NN -> ZZ$ función biyectiva definida en 13)b) tenemos que:\
 $ x compose h(n): NN -> QQ$ biyectiva por composición de funciones biyectivas.
 ]
+
+$bold("Ejercicio" 10.)$ Probar que $"#" A$
