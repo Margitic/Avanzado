@@ -28,3 +28,12 @@ $bold("Ejercicio" 10.)$ Probar que $hash A<= hash B$ si y solo si existe una fun
   Tenemos una función $g: B -> A$ sobreyectiva, queremos ver que existe una función $f: A ->B$ inyectiva. \
   $bold("Duda de escritura:")$ tendría que definir a f de manera tal que $forall a in A$ se le asigne un único elemento de $b$, como $g$ es sobreyectiva se que en la preimagen de $g$ cada elemento $a in A$ tiene uno o mas elementos de $b tq g(b) = a.$
 ]
+
+$bold("Ejercicio opcional.")$ Probar que $RR ~ (a,b), forall a,b in RR.$\
+#proofg[
+  Sabemos por apunte que $RR ~ (0,1)$ por transitividad de la equivalencia nos basta ver que $(0,1)~(a,b)$.\
+  Tomemos la función $h: (0,1)->(a,b), h(x)=a+x(b-a)$\
+  $h^(-1)(x):(a,b)->(0,1), h^(-1)(x)=(x-a)/(b-a)$\
+  $h compose h^(-1)(x)= a+ (x-a)/(b-a).(b-a) = x$ por tanto es biyectiva.
+]
+
